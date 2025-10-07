@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Memory Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Memory Management in C</h1>
+    <p>C requires manual memory management. Allocate when needed, free when done. Mistakes cause leaks or crashes.</p>
+    <h2>malloc</h2>
+    <p>Allocates uninitialized memory. Returns void* (cast to type).</p>
+    <pre><code>int *arr = (int*)malloc(5 * sizeof(int));</code></pre>
+    <p>Check for NULL return. Memory may contain garbage.</p>
+    <h2>calloc</h2>
+    <p>Allocates and initializes to zero. Slower but safer.</p>
+    <pre><code>int *arr = (int*)calloc(5, sizeof(int));</code></pre>
+    <h2>realloc</h2>
+    <p>Resize existing allocation. May move data.</p>
+    <pre><code>arr = (int*)realloc(arr, 10 * sizeof(int));</code></pre>
+    <p>If fails, original pointer unchanged. Copy data if needed.</p>
+    <h2>free</h2>
+    <pre><code>free(arr);</code></pre>
+    <p>Deallocates memory. Accessing freed memory is undefined. Double free crashes.</p>
+    <h2>Memory Leaks</h2>
+    <p>Forgetting to free causes leaks. Programs consume more memory over time.</p>
+    <pre><code>// Leak
+int *p = malloc(sizeof(int));
+// Use p
+// Forgot free(p);</code></pre>
+    <h2>Common Mistakes</h2>
+    <ul>
+        <li><strong>Dangling pointers:</strong> Using freed memory</li>
+        <li><strong>Double free:</strong> Freeing already freed pointer</li>
+        <li><strong>Buffer overflow:</strong> Accessing beyond allocated memory</li>
+        <li><strong>Use after free:</strong> Accessing freed memory</li>
+    </ul>
+    <h2>Tools</h2>
+    <p>Use Valgrind to detect memory issues. Compile with -fsanitize=address for runtime checks.</p>
+    <p><strong>Advanced Note:</strong> For complex programs, use smart pointers or garbage collectors, but C doesn't have them built-in.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

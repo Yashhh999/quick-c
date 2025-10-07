@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators in C</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Operators in C</h1>
+    <p>Operators perform operations on operands. Understanding precedence and associativity prevents bugs.</p>
+    <h2>Arithmetic Operators</h2>
+    <p>Basic math operations. Division of integers truncates.</p>
+    <table>
+        <tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+        <tr><td>+</td><td>Addition</td><td>a + b</td></tr>
+        <tr><td>-</td><td>Subtraction</td><td>a - b</td></tr>
+        <tr><td>*</td><td>Multiplication</td><td>a * b</td></tr>
+        <tr><td>/</td><td>Division</td><td>a / b</td></tr>
+        <tr><td>%</td><td>Modulus (remainder)</td><td>a % b</td></tr>
+    </table>
+    <p><strong>Advanced Note:</strong> Modulus with negative numbers can be implementation-defined. Use carefully.</p>
+    <h2>Assignment Operators</h2>
+    <p>Assign values to variables. Compound assignments are efficient.</p>
+    <pre><code>int a = 5;  // Simple assignment
+a += 3;     // Equivalent to a = a + 3
+a -= 2;     // a = a - 2
+a *= 4;     // a = a * 4
+a /= 2;     // a = a / 2
+a %= 3;     // a = a % 3</code></pre>
+    <h2>Comparison Operators</h2>
+    <p>Return 1 (true) or 0 (false). Used in conditions.</p>
+    <table>
+        <tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+        <tr><td>==</td><td>Equal to</td><td>a == b</td></tr>
+        <tr><td>!=</td><td>Not equal to</td><td>a != b</td></tr>
+        <tr><td>&lt;</td><td>Less than</td><td>a &lt; b</td></tr>
+        <tr><td>&gt;</td><td>Greater than</td><td>a &gt; b</td></tr>
+        <tr><td>&lt;=</td><td>Less than or equal</td><td>a &lt;= b</td></tr>
+        <tr><td>&gt;=</td><td>Greater than or equal</td><td>a &gt;= b</td></tr>
+    </table>
+    <h2>Logical Operators</h2>
+    <p>Short-circuit evaluation: right side not evaluated if left determines result.</p>
+    <ul>
+        <li><code>&amp;&amp;</code> (AND): true if both true</li>
+        <li><code>||</code> (OR): true if either true</li>
+        <li><code>!</code> (NOT): inverts boolean value</li>
+    </ul>
+    <h2>Bitwise Operators</h2>
+    <p>Manipulate bits directly. Useful for low-level programming, flags, optimizations.</p>
+    <table>
+        <tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+        <tr><td>&amp;</td><td>Bitwise AND</td><td>a &amp; b</td></tr>
+        <tr><td>|</td><td>Bitwise OR</td><td>a | b</td></tr>
+        <tr><td>^</td><td>Bitwise XOR</td><td>a ^ b</td></tr>
+        <tr><td>~</td><td>Bitwise NOT</td><td>~a</td></tr>
+        <tr><td>&lt;&lt;</td><td>Left shift</td><td>a &lt;&lt; 1</td></tr>
+        <tr><td>&gt;&gt;</td><td>Right shift</td><td>a &gt;&gt; 1</td></tr>
+    </table>
+    <pre><code>int a = 5;  // 101 in binary
+int b = a &lt;&lt; 1;  // 10, shifts left (multiply by 2)</code></pre>
+    <p><strong>Advanced Note:</strong> Shifting negative numbers or by large amounts is undefined. Use for performance-critical code.</p>
+    <h2>Increment/Decrement</h2>
+    <pre><code>a++;  // Post-increment: use then increment
+++a;  // Pre-increment: increment then use</code></pre>
+    <p>Difference matters in expressions. Avoid complex expressions with side effects.</p>
+    <h2>Operator Precedence</h2>
+    <p>Multiplication before addition, etc. Use parentheses for clarity.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions in C</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Functions in C</h1>
+    <p>Functions modularize code, improve readability, and enable reuse. They must be declared before use.</p>
+    <h2>Function Declaration</h2>
+    <p>Specifies return type, name, and parameters. Body contains the logic.</p>
+    <pre><code>return_type function_name(parameter_type parameter_name) {
+    // Statements
+    return value;  // If not void
+}</code></pre>
+    <p><strong>Key Points:</strong> Return type can be any type or void. Parameters are passed by value (copies).</p>
+    <h2>Example</h2>
+    <pre><code>int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 3);
+    printf("%d\n", result);
+    return 0;
+}</code></pre>
+    <h2>Prototypes</h2>
+    <p>Declare function signature before definition. Allows calling before defining.</p>
+    <pre><code>int add(int, int);  // Prototype
+
+int add(int a, int b) {
+    return a + b;
+}</code></pre>
+    <p>Prototypes are mandatory for functions defined after main.</p>
+    <h2>Void Functions</h2>
+    <p>Functions that don't return a value. Used for side effects.</p>
+    <pre><code>void printHello() {
+    printf("Hello\n");
+}</code></pre>
+    <h2>Recursion</h2>
+    <p>Function calls itself. Useful for problems with recursive structure, but watch stack overflow.</p>
+    <pre><code>int factorial(int n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}</code></pre>
+    <p><strong>Advanced Note:</strong> Recursion can be less efficient than iteration due to stack usage. Use for clarity when appropriate.</p>
+    <h2>Pass by Reference</h2>
+    <p>Use pointers to modify arguments.</p>
+    <pre><code>void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}</code></pre>
+    <p><strong>Advanced Note:</strong> Pointers enable efficient passing of large structures. Be careful with null pointers.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

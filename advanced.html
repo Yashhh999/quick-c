@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Topics</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Advanced Topics in C</h1>
+    <p>These features are powerful but require careful use. They enable low-level control and optimization.</p>
+    <h2>Function Pointers</h2>
+    <p>Pointers to functions allow dynamic function calls and callbacks.</p>
+    <pre><code>int (*func_ptr)(int, int) = &add;
+int result = func_ptr(5, 3);</code></pre>
+    <p>Used in sorting algorithms, event handlers. Syntax is complex but essential for advanced C.</p>
+    <h2>Variable Arguments</h2>
+    <p>Functions like printf that take variable number of arguments.</p>
+    <pre><code>#include &lt;stdarg.h&gt;
+int sum(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    int total = 0;
+    for (int i = 0; i < count; i++) {
+        total += va_arg(args, int);
+    }
+    va_end(args);
+    return total;
+}</code></pre>
+    <p>va_start initializes, va_arg gets next arg, va_end cleans up. Type safety is programmer's responsibility.</p>
+    <h2>Inline Functions</h2>
+    <pre><code>inline int max(int a, int b) {
+    return a > b ? a : b;
+}</code></pre>
+    <p>Compiler may inline the function, avoiding call overhead. Use for small, frequently called functions.</p>
+    <h2>Volatile and Const</h2>
+    <pre><code>volatile int *ptr;  // Value may change unexpectedly (e.g., hardware)
+const int x = 10;    // Cannot modify</code></pre>
+    <p>volatile prevents compiler optimizations. const allows compiler optimizations and catches errors.</p>
+    <h2>Multi-threading (C11)</h2>
+    <pre><code>#include &lt;threads.h&gt;
+int thread_func(void *arg) {
+    // Thread code
+    return 0;
+}
+thrd_t thread;
+thrd_create(&thread, thread_func, NULL);</code></pre>
+    <p>C11 added threads. Use for concurrent programming. Requires careful synchronization.</p>
+    <h2>Atomic Operations</h2>
+    <pre><code>#include &lt;stdatomic.h&gt;
+atomic_int counter = ATOMIC_VAR_INIT(0);
+atomic_fetch_add(&counter, 1);</code></pre>
+    <p>Thread-safe operations without locks. Essential for multi-threaded code.</p>
+    <h2>Generic Selections</h2>
+    <pre><code>#define type_name(x) _Generic((x), \
+    int: "int", \
+    float: "float", \
+    default: "unknown")</code></pre>
+    <p>Compile-time type checking. Useful for type-generic macros.</p>
+    <h2>Restrict Keyword</h2>
+    <pre><code>void copy(int *restrict dest, int *restrict src, int n) {
+    for (int i = 0; i < n; i++) {
+        dest[i] = src[i];
+    }
+}</code></pre>
+    <p>Tells compiler pointers don't alias, enabling optimizations.</p>
+    <p><strong>Advanced Note:</strong> These features are for performance-critical or systems code. They increase complexity and potential for bugs.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

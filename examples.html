@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Examples</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Code Examples in C</h1>
+    <p>Practical examples demonstrating C concepts. Compile and run to understand.</p>
+    <h2>Calculator</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    double a, b;
+    char op;
+    printf("Enter expression (a op b): ");
+    scanf("%lf %c %lf", &a, &op, &b);
+    switch (op) {
+        case '+': printf("%.2f\n", a + b); break;
+        case '-': printf("%.2f\n", a - b); break;
+        case '*': printf("%.2f\n", a * b); break;
+        case '/': if (b != 0) printf("%.2f\n", a / b); else printf("Error\n"); break;
+        default: printf("Invalid operator\n");
+    }
+    return 0;
+}</code></pre>
+    <p>Demonstrates input, switch statements, and basic arithmetic.</p>
+    <h2>Linked List</h2>
+    <pre><code>struct Node {
+    int data;
+    struct Node *next;
+};
+
+void insert(struct Node **head, int data) {
+    struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = *head;
+    *head = newNode;
+}
+
+void printList(struct Node *head) {
+    while (head) {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+}</code></pre>
+    <p>Shows dynamic memory, structures, pointers. Don't forget to free nodes.</p>
+    <h2>File Copy</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *src = fopen("source.txt", "r");
+    FILE *dest = fopen("dest.txt", "w");
+    if (!src || !dest) {
+        printf("Error opening files\n");
+        return 1;
+    }
+    char ch;
+    while ((ch = fgetc(src)) != EOF) {
+        fputc(ch, dest);
+    }
+    fclose(src);
+    fclose(dest);
+    return 0;
+}</code></pre>
+    <p>Illustrates file I/O and error checking.</p>
+    <h2>Sorting Array</h2>
+    <pre><code>void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    bubbleSort(arr, n);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}</code></pre>
+    <p>Simple sorting algorithm. O(n²) complexity.</p>
+    <h2>Command Line Arguments</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+    printf("Program name: %s\n", argv[0]);
+    for (int i = 1; i < argc; i++) {
+        printf("Argument %d: %s\n", i, argv[i]);
+    }
+    return 0;
+}</code></pre>
+    <p>argc is argument count, argv is array of strings. Run with: ./program arg1 arg2</p>
+    <h2>Function Pointer Example</h2>
+    <pre><code>int add(int a, int b) { return a + b; }
+int multiply(int a, int b) { return a * b; }
+
+int operate(int (*op)(int, int), int a, int b) {
+    return op(a, b);
+}
+
+int main() {
+    printf("%d\n", operate(add, 5, 3));      // 8
+    printf("%d\n", operate(multiply, 5, 3)); // 15
+    return 0;
+}</code></pre>
+    <p>Shows function pointers for flexible operations.</p>
+    <p><strong>Advanced Note:</strong> These examples are basic. Real programs need error handling, input validation, and proper resource management.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

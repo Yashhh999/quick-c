@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Reference</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Quick Reference for C</h1>
+    <p>Fast lookup for common C constructs and functions.</p>
+    <h2>Data Types</h2>
+    <table>
+        <tr><th>Type</th><th>Size (bytes)</th><th>Range</th><th>Use Case</th></tr>
+        <tr><td>char</td><td>1</td><td>-128 to 127</td><td>Characters, small integers</td></tr>
+        <tr><td>short</td><td>2</td><td>-32K to 32K</td><td>Small integers</td></tr>
+        <tr><td>int</td><td>4</td><td>-2B to 2B</td><td>General integers</td></tr>
+        <tr><td>long</td><td>8</td><td>-9Q to 9Q</td><td>Large integers</td></tr>
+        <tr><td>float</td><td>4</td><td>~6 digits</td><td>Floating point</td></tr>
+        <tr><td>double</td><td>8</td><td>~15 digits</td><td>Double precision</td></tr>
+    </table>
+    <h2>Control Structures</h2>
+    <pre><code>if (condition) { } else { }
+for (int i=0; i&lt;n; i++) { }
+while (condition) { }
+do { } while (condition);
+switch (var) { case 1: break; default: }</code></pre>
+    <h2>Functions</h2>
+    <pre><code>return_type func(params) { return val; }
+void func(void) { }  // No params/return</code></pre>
+    <h2>Pointers</h2>
+    <pre><code>int *p;           // Pointer declaration
+p = &x;            // Address of x
+y = *p;            // Value at p
+p++;               // Pointer arithmetic</code></pre>
+    <h2>Arrays</h2>
+    <pre><code>int arr[5];       // Fixed size
+int arr[] = {1,2,3}; // Initialized
+arr[0] = 10;       // Access</code></pre>
+    <h2>Strings</h2>
+    <pre><code>char str[20] = "Hello";
+printf("%s", str);
+strlen(str);       // Length
+strcpy(dest, src); // Copy</code></pre>
+    <h2>Memory</h2>
+    <pre><code>int *p = malloc(sizeof(int));
+free(p);
+p = calloc(5, sizeof(int)); // Zeroed</code></pre>
+    <h2>Common Functions</h2>
+    <table>
+        <tr><th>Header</th><th>Functions</th></tr>
+        <tr><td>&lt;stdio.h&gt;</td><td>printf, scanf, fopen, fclose</td></tr>
+        <tr><td>&lt;stdlib.h&gt;</td><td>malloc, free, atoi, rand</td></tr>
+        <tr><td>&lt;string.h&gt;</td><td>strlen, strcpy, strcmp</td></tr>
+        <tr><td>&lt;math.h&gt;</td><td>sin, cos, sqrt, pow</td></tr>
+    </table>
+    <h2>Compilation</h2>
+    <pre><code>gcc file.c -o output  # Compile
+./output              # Run
+gcc -Wall file.c      # With warnings</code></pre>
+    <h2>Operators Precedence</h2>
+    <ul>
+        <li>Postfix: () [] -> . ++ --</li>
+        <li>Unary: + - ! ~ ++ -- (type)* & sizeof</li>
+        <li>Multiplicative: * / %</li>
+        <li>Additive: + -</li>
+        <li>Shift: << >></li>
+        <li>Relational: < <= > >=</li>
+        <li>Equality: == !=</li>
+        <li>Bitwise AND: &</li>
+        <li>Bitwise XOR: ^</li>
+        <li>Bitwise OR: |</li>
+        <li>Logical AND: &&</li>
+        <li>Logical OR: ||</li>
+        <li>Conditional: ?:</li>
+        <li>Assignment: = += -= etc.</li>
+        <li>Comma: ,</li>
+    </ul>
+    <p><strong>Advanced Note:</strong> Use parentheses for complex expressions. Left-to-right for same precedence.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

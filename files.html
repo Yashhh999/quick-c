@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>File Handling in C</h1>
+    <p>Files allow persistent data storage. Use FILE pointers for operations.</p>
+    <h2>Opening a File</h2>
+    <pre><code>FILE *fp;
+fp = fopen("file.txt", "r");  // Read mode
+fp = fopen("file.txt", "w");  // Write (creates/truncates)
+fp = fopen("file.txt", "a");  // Append</code></pre>
+    <p>Other modes: "rb" binary read, "w+" read/write. Returns NULL on failure.</p>
+    <h2>Reading from File</h2>
+    <pre><code>char ch;
+while ((ch = fgetc(fp)) != EOF) {
+    printf("%c", ch);
+}</code></pre>
+    <p>fgetc reads one character. EOF indicates end of file.</p>
+    <h2>Writing to File</h2>
+    <pre><code>fprintf(fp, "Hello, %s!\n", name);</code></pre>
+    <p>fprintf is like printf but to file. fputc for single characters.</p>
+    <h2>Closing File</h2>
+    <pre><code>fclose(fp);</code></pre>
+    <p>Always close files to flush buffers and free resources. Forgetting can cause data loss.</p>
+    <h2>Binary Files</h2>
+    <p>Store data as bytes, not text. Faster for large data.</p>
+    <pre><code>fp = fopen("data.bin", "rb");
+fwrite(&data, sizeof(data), 1, fp);
+fread(&data, sizeof(data), 1, fp);</code></pre>
+    <p>fwrite/fread handle structures, arrays directly.</p>
+    <h2>Error Handling</h2>
+    <pre><code>if (fp == NULL) {
+    perror("Error opening file");
+    return 1;
+}</code></pre>
+    <p>Check fopen return. Use feof() and ferror() for read errors.</p>
+    <h2>Random Access</h2>
+    <pre><code>fseek(fp, 0, SEEK_SET);  // Beginning
+ftell(fp);  // Current position</code></pre>
+    <p><strong>Advanced Note:</strong> For large files or databases, consider buffered I/O and error recovery.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

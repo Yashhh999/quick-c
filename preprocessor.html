@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preprocessor Directives</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Preprocessor Directives in C</h1>
+    <p>The preprocessor runs before compilation. It handles includes, defines, and conditional compilation.</p>
+    <h2>#include</h2>
+    <p>Inserts contents of header files. Use <> for system headers, "" for local.</p>
+    <pre><code>#include &lt;stdio.h&gt;    // Standard library
+#include "myheader.h"  // Custom header</code></pre>
+    <p>Headers declare functions/variables. Source files define them.</p>
+    <h2>#define</h2>
+    <p>Text substitution. No type checking.</p>
+    <pre><code>#define PI 3.14159
+#define MAX(a,b) ((a) > (b) ? (a) : (b))</code></pre>
+    <p>Use parentheses in macros to avoid precedence issues.</p>
+    <h2>Conditional Compilation</h2>
+    <pre><code>#ifdef DEBUG
+    printf("Debug mode\n");
+#endif
+
+#ifndef HEADER_H
+#define HEADER_H
+// Header guards prevent multiple inclusion
+#endif</code></pre>
+    <p>Useful for platform-specific code or debug builds.</p>
+    <h2>#if, #else, #elif</h2>
+    <pre><code>#if DEBUG == 1
+    printf("Debug mode\n");
+#endif</code></pre>
+    <p>Allows complex conditions with defined() checks.</p>
+    <h2>Other Directives</h2>
+    <ul>
+        <li><code>#pragma</code> - Compiler-specific instructions</li>
+        <li><code>#error</code> - Stop compilation with message</li>
+        <li><code>#line</code> - Change reported line number</li>
+        <li><code>#undef</code> - Remove macro definition</li>
+    </ul>
+    <h2>Predefined Macros</h2>
+    <ul>
+        <li><code>__FILE__</code> - Current file name</li>
+        <li><code>__LINE__</code> - Current line number</li>
+        <li><code>__DATE__</code> - Compilation date</li>
+    </ul>
+    <p><strong>Advanced Note:</strong> Preprocessor is powerful but can make code hard to debug. Use const for constants when possible.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

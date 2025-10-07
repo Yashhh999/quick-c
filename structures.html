@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structures and Unions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Structures and Unions in C</h1>
+    <p>Structures group related data into a single unit. Unions save memory by sharing space.</p>
+    <h2>Structures</h2>
+    <p>Define custom data types with multiple fields.</p>
+    <pre><code>struct Person {
+    char name[50];
+    int age;
+    float height;
+};</code></pre>
+    <p>Structure definition doesn't allocate memory; it's a blueprint.</p>
+    <h2>Using Structures</h2>
+    <pre><code>struct Person p1;
+strcpy(p1.name, "John");
+p1.age = 30;
+p1.height = 5.9;</code></pre>
+    <p>Access members with dot operator. Initialize with {}.</p>
+    <h2>Structure Pointers</h2>
+    <pre><code>struct Person *ptr = &p1;
+printf("%s\n", ptr-&gt;name);  // Arrow operator</code></pre>
+    <p>Use -> for pointers to structures. Equivalent to (*ptr).name.</p>
+    <h2>Typedef</h2>
+    <p>Create aliases for types to simplify code.</p>
+    <pre><code>typedef struct Person Person;  // Now use Person instead of struct Person</code></pre>
+    <p>Common for structures to avoid typing "struct" repeatedly.</p>
+    <h2>Self-Referential Structures</h2>
+    <pre><code>struct Node {
+    int data;
+    struct Node *next;  // Points to another Node
+};</code></pre>
+    <p>Used for linked lists, trees. Forward declare if needed.</p>
+    <h2>Unions</h2>
+    <p>All members share the same memory location. Size is largest member.</p>
+    <pre><code>union Data {
+    int i;
+    float f;
+    char str[20];
+};</code></pre>
+    <p>Useful for variant types or memory optimization.</p>
+    <pre><code>union Data d;
+d.i = 10;  // Sets int
+printf("%f\n", d.f);  // Undefined, different interpretation</code></pre>
+    <h2>Bit Fields</h2>
+    <p>Pack data into bits for memory efficiency.</p>
+    <pre><code>struct {
+    unsigned int width : 4;  // 4 bits
+    unsigned int height : 4;
+} flags;</code></pre>
+    <p><strong>Advanced Note:</strong> Bit fields are non-portable. Use for hardware interfaces or tight memory constraints.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

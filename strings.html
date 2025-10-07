@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings in C</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Strings in C</h1>
+    <p>Strings are arrays of characters terminated by null ('\0'). No built-in string type; use char arrays.</p>
+    <h2>Declaration</h2>
+    <pre><code>char str[20] = "Hello";  // Fixed size
+char *str2 = "World";    // Pointer to literal</code></pre>
+    <p>String literals are read-only. Modifying them causes undefined behavior.</p>
+    <h2>String Functions</h2>
+    <p>Include &lt;string.h&gt; for standard functions.</p>
+    <ul>
+        <li><code>strlen(str)</code> - Length (excluding null)</li>
+        <li><code>strcpy(dest, src)</code> - Copy src to dest</li>
+        <li><code>strcat(dest, src)</code> - Append src to dest</li>
+        <li><code>strcmp(s1, s2)</code> - Compare: 0 if equal</li>
+    </ul>
+    <p><strong>Key Points:</strong> strcpy doesn't check bounds. Use strncpy for safety.</p>
+    <h2>Example</h2>
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char name[50];
+    printf("Enter name: ");
+    scanf("%s", name);  // Reads until space
+    printf("Hello, %s\n", name);
+    return 0;
+}</code></pre>
+    <h2>Input with Spaces</h2>
+    <p>scanf stops at spaces. Use fgets for full lines.</p>
+    <pre><code>char sentence[100];
+fgets(sentence, 100, stdin);  // Reads entire line</code></pre>
+    <p>fgets includes newline. Use strcspn to remove it.</p>
+    <h2>String Manipulation</h2>
+    <pre><code>char str[20] = "Hello";
+str[0] = 'J';  // "Jello"
+strcat(str, " World");  // "Jello World"</code></pre>
+    <p><strong>Advanced Note:</strong> Always ensure destination has enough space. Buffer overflows are major security vulnerabilities.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Up the Environment</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+    </style>
+</head>
+<body>
+    <h1>Setting Up the C Development Environment</h1>
+    <p>To start programming in C, you need a compiler and a text editor or IDE.</p>
+    <h2>Compilers</h2>
+    <ul>
+        <li><strong>GCC (GNU Compiler Collection)</strong>: Free, open-source. Available on Linux, macOS, Windows (via MinGW or Cygwin).</li>
+        <li><strong>Clang</strong>: Alternative to GCC, used in Xcode on macOS.</li>
+        <li><strong>Visual Studio</strong>: On Windows, provides MSVC compiler.</li>
+    </ul>
+    <h2>Installation</h2>
+    <h3>On Linux (Ubuntu/Debian)</h3>
+    <pre><code>sudo apt update
+sudo apt install gcc</code></pre>
+    <h3>On macOS</h3>
+    <p>Install Xcode from App Store, or use Homebrew: <code>brew install gcc</code></p>
+    <h3>On Windows</h3>
+    <p>Download MinGW from <a href="https://www.mingw-w64.org/">mingw-w64.org</a> or use Visual Studio.</p>
+    <h2>Compiling and Running</h2>
+    <p>Save your code in a file with .c extension, e.g., hello.c</p>
+    <pre><code>gcc hello.c -o hello
+./hello</code></pre>
+    <p>This compiles hello.c into an executable named hello and runs it.</p>
+    <h2>IDEs and Editors</h2>
+    <ul>
+        <li>Visual Studio Code with C/C++ extension</li>
+        <li>Code::Blocks</li>
+        <li>Eclipse CDT</li>
+        <li>Vim/Emacs with plugins</li>
+    </ul>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

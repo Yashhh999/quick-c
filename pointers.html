@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointers in C</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Pointers in C</h1>
+    <p>Pointers store memory addresses. They enable direct memory manipulation, dynamic allocation, and efficient data structures.</p>
+    <h2>Declaration</h2>
+    <pre><code>int *ptr;     // Pointer to int
+char *str;    // Pointer to char
+void *generic; // Generic pointer</code></pre>
+    <p>The * indicates it's a pointer type. Pointers have their own size (usually 8 bytes on 64-bit).</p>
+    <h2>Address Operator</h2>
+    <pre><code>int x = 10;
+int *p = &x;  // p holds address of x</code></pre>
+    <p>& gets the address of a variable. Pointers "point to" other variables.</p>
+    <h2>Dereference Operator</h2>
+    <pre><code>printf("%d\n", *p);  // Prints 10
+*p = 20;  // Changes x to 20</code></pre>
+    <p>* accesses the value at the pointed address. Dereferencing null pointers crashes the program.</p>
+    <h2>Pointer Arithmetic</h2>
+    <p>Pointers can be incremented/decremented. Moves by the size of the pointed type.</p>
+    <pre><code>int arr[5] = {1,2,3,4,5};
+int *p = arr;  // Points to arr[0]
+p++;  // Now points to arr[1]
+printf("%d\n", *p);  // 2</code></pre>
+    <p><strong>Advanced Note:</strong> Pointer arithmetic is powerful for array traversal but dangerous if out of bounds.</p>
+    <h2>Pointers and Functions</h2>
+    <p>Pass pointers to modify arguments (pass by reference).</p>
+    <pre><code>void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 1, y = 2;
+    swap(&x, &y);  // Pass addresses
+    // x is 2, y is 1
+}</code></pre>
+    <p>Without pointers, changes wouldn't affect originals.</p>
+    <h2>Null Pointer</h2>
+    <pre><code>int *p = NULL;</code></pre>
+    <p>Represents no valid address. Always check before dereferencing.</p>
+    <pre><code>if (p != NULL) {
+    *p = 5;
+}</code></pre>
+    <h2>Double Pointers</h2>
+    <pre><code>int **pp;  // Pointer to pointer</code></pre>
+    <p>Used for arrays of pointers, dynamic 2D arrays, etc.</p>
+    <h2>Pointer to Functions</h2>
+    <pre><code>int (*func_ptr)(int, int) = &add;</code></pre>
+    <p>Allows passing functions as arguments. Advanced topic for callbacks.</p>
+    <p><strong>Advanced Note:</strong> Pointers are the source of C's power and complexity. Master them for systems programming, but avoid unnecessary complexity.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

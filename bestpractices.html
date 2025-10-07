@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices and Common Pitfalls</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Best Practices and Common Pitfalls in C</h1>
+    <p>C gives power but requires discipline. Following best practices prevents bugs and improves maintainability.</p>
+    <h2>Best Practices</h2>
+    <ul>
+        <li><strong>Use meaningful names:</strong> Variables and functions should describe their purpose</li>
+        <li><strong>Initialize variables:</strong> Avoid uninitialized variables causing unpredictable behavior</li>
+        <li><strong>Check return values:</strong> Functions like malloc, fopen can fail</li>
+        <li><strong>Use const:</strong> For constants and pointers that shouldn't change</li>
+        <li><strong>Avoid global variables:</strong> They make code hard to reason about</li>
+        <li><strong>Use header guards:</strong> Prevent multiple inclusion of headers</li>
+        <li><strong>Free memory:</strong> Every malloc needs a free</li>
+        <li><strong>Use size_t:</strong> For sizes and array indices</li>
+        <li><strong>Compile with warnings:</strong> <code>gcc -Wall -Wextra -pedantic</code></li>
+        <li><strong>Use static analysis:</strong> Tools like cppcheck, clang-tidy</li>
+    </ul>
+    <h2>Common Pitfalls</h2>
+    <ul>
+        <li><strong>Buffer overflows:</strong> Accessing arrays beyond bounds. Use bounds checking</li>
+        <li><strong>Null pointer dereference:</strong> Check pointers before use</li>
+        <li><strong>Memory leaks:</strong> Forgetting free(). Use tools like Valgrind</li>
+        <li><strong>Integer overflow:</strong> Check arithmetic operations</li>
+        <li><strong>Undefined behavior:</strong> Avoid things like shifting negative numbers</li>
+        <li><strong>Missing break in switch:</strong> Causes fall-through</li>
+        <li><strong>= vs ==:</strong> Assignment in condition</li>
+        <li><strong>Missing headers:</strong> Include necessary headers</li>
+        <li><strong>Array decay:</strong> Arrays become pointers, lose size info</li>
+        <li><strong>String termination:</strong> Forget null terminator</li>
+    </ul>
+    <h2>Debugging</h2>
+    <ul>
+        <li><strong>printf debugging:</strong> Simple but effective</li>
+        <li><strong>GDB:</strong> Powerful debugger for step-through debugging</li>
+        <li><strong>Valgrind:</strong> Memory error detection</li>
+        <li><strong>Address sanitizer:</strong> Compile with -fsanitize=address</li>
+    </ul>
+    <h2>Performance Tips</h2>
+    <ul>
+        <li><strong>Choose right types:</strong> Use smallest type that fits</li>
+        <li><strong>Avoid unnecessary work:</strong> Cache results, use efficient algorithms</li>
+        <li><strong>Inline small functions:</strong> Reduces call overhead</li>
+        <li><strong>Profile code:</strong> Use gprof or perf to find bottlenecks</li>
+        <li><strong>Use const:</strong> Helps compiler optimize</li>
+    </ul>
+    <h2>Portability</h2>
+    <ul>
+        <li><strong>Avoid platform-specific code:</strong> Use standard library</li>
+        <li><strong>Use fixed-width types:</strong> From &lt;stdint.h&gt; (int32_t, etc.)</li>
+        <li><strong>Check endianness:</strong> If byte order matters</li>
+        <li><strong>Use autoconf:</strong> For cross-platform builds</li>
+    </ul>
+    <p><strong>Advanced Note:</strong> C is unforgiving. Write defensive code: check inputs, use assertions, handle errors gracefully.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

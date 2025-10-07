@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types and Variables</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Data Types and Variables in C</h1>
+    <p>C requires explicit type declarations for variables. This allows the compiler to allocate appropriate memory and perform type checking, leading to efficient code.</p>
+    <h2>Basic Data Types</h2>
+    <p>Choose types based on the range and precision needed. Using the wrong type can cause overflow or precision loss.</p>
+    <table>
+        <tr><th>Type</th><th>Size (bytes)</th><th>Range</th><th>Use Case</th></tr>
+        <tr><td>char</td><td>1</td><td>-128 to 127</td><td>Single characters, small integers</td></tr>
+        <tr><td>short</td><td>2</td><td>-32,768 to 32,767</td><td>Small integers</td></tr>
+        <tr><td>int</td><td>4</td><td>-2^31 to 2^31-1</td><td>General integers</td></tr>
+        <tr><td>long</td><td>8</td><td>-2^63 to 2^63-1</td><td>Large integers</td></tr>
+        <tr><td>float</td><td>4</td><td>~6 decimal digits</td><td>Floating point, less precision</td></tr>
+        <tr><td>double</td><td>8</td><td>~15 decimal digits</td><td>Floating point, more precision</td></tr>
+    </table>
+    <p><strong>Advanced Note:</strong> Sizes can vary by platform. Use <code>sizeof()</code> to check. For portability, prefer <code>int</code> for integers unless size matters.</p>
+    <h2>Variables</h2>
+    <p>Variables must be declared before use. Declaration tells the compiler the type and allocates memory.</p>
+    <pre><code>int age = 25;  // Integer variable
+float pi = 3.14;  // Floating point
+char letter = 'A';  // Character</code></pre>
+    <p>Uninitialized variables contain garbage values. Always initialize for predictable behavior.</p>
+    <h2>Constants</h2>
+    <p>Constants cannot be changed after initialization. Use for fixed values.</p>
+    <pre><code>const int MAX_SIZE = 100;  // Runtime constant
+#define PI 3.14159  // Compile-time constant</code></pre>
+    <p><strong>Key Difference:</strong> <code>const</code> is checked at compile time, <code>#define</code> is a preprocessor replacement.</p>
+    <h2>Type Casting</h2>
+    <p>Convert between types explicitly. Implicit casting can lose data.</p>
+    <pre><code>int x = 5;
+double y = (double)x;  // Explicit cast</code></pre>
+    <p><strong>Advanced Note:</strong> Casting pointers can be dangerous. Use with care to avoid undefined behavior.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

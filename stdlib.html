@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Library</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Standard Library in C</h1>
+    <p>The C standard library provides essential functions. Include appropriate headers.</p>
+    <h2>&lt;stdio.h&gt; - Input/Output</h2>
+    <ul>
+        <li><code>printf, scanf</code> - Formatted I/O</li>
+        <li><code>fopen, fclose</code> - File operations</li>
+        <li><code>fread, fwrite</code> - Binary I/O</li>
+        <li><code>getchar, putchar</code> - Character I/O</li>
+        <li><code>fprintf, fscanf</code> - File formatted I/O</li>
+    </ul>
+    <p><strong>Key Functions:</strong> printf uses format specifiers (%d, %f, %s). scanf can be tricky with input validation.</p>
+    <h2>&lt;stdlib.h&gt; - General Utilities</h2>
+    <ul>
+        <li><code>malloc, free, calloc, realloc</code> - Memory management</li>
+        <li><code>atoi, atof</code> - String to number conversion</li>
+        <li><code>rand, srand</code> - Random numbers</li>
+        <li><code>exit, abort</code> - Program termination</li>
+        <li><code>qsort, bsearch</code> - Sorting and searching</li>
+    </ul>
+    <p><strong>Advanced Note:</strong> qsort takes comparison function pointer for custom sorting.</p>
+    <h2>&lt;string.h&gt; - String Handling</h2>
+    <ul>
+        <li><code>strlen, strcpy, strcat</code> - Basic operations</li>
+        <li><code>strcmp, strncmp</code> - Comparison</li>
+        <li><code>strchr, strstr</code> - Searching</li>
+        <li><code>memcpy, memset</code> - Memory operations</li>
+    </ul>
+    <p>Many functions don't check bounds. Use strn* versions for safety.</p>
+    <h2>&lt;math.h&gt; - Mathematical Functions</h2>
+    <ul>
+        <li><code>sin, cos, tan</code> - Trigonometric</li>
+        <li><code>sqrt, pow</code> - Power and root</li>
+        <li><code>ceil, floor</code> - Rounding</li>
+        <li><code>exp, log</code> - Exponential and log</li>
+    </ul>
+    <p>Link with -lm on Unix systems.</p>
+    <h2>&lt;time.h&gt; - Time Functions</h2>
+    <ul>
+        <li><code>time, clock</code> - Current time</li>
+        <li><code>localtime, strftime</code> - Formatting</li>
+        <li><code>difftime</code> - Time difference</li>
+    </ul>
+    <p>time_t is seconds since epoch. struct tm for broken-down time.</p>
+    <h2>&lt;ctype.h&gt; - Character Classification</h2>
+    <ul>
+        <li><code>isalpha, isdigit, isspace</code> - Classification</li>
+        <li><code>toupper, tolower</code> - Case conversion</li>
+        <li><code>isalnum, ispunct</code> - More checks</li>
+    </ul>
+    <p>Locale-aware functions.</p>
+    <h2>&lt;assert.h&gt;</h2>
+    <pre><code>assert(condition);  // Aborts if false in debug mode</code></pre>
+    <p>Use for debugging preconditions. Disabled in release builds.</p>
+    <h2>Other Headers</h2>
+    <ul>
+        <li><code>&lt;limits.h&gt;</code> - Type limits (INT_MAX, etc.)</li>
+        <li><code>&lt;float.h&gt;</code> - Floating point limits</li>
+        <li><code>&lt;errno.h&gt;</code> - Error codes</li>
+        <li><code>&lt;signal.h&gt;</code> - Signal handling</li>
+    </ul>
+    <p><strong>Advanced Note:</strong> Standard library is portable but basic. For advanced features, use external libraries.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

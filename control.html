@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Structures</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Control Structures in C</h1>
+    <p>Control structures direct program flow. They execute code conditionally or repeatedly.</p>
+    <h2>If-Else</h2>
+    <p>Executes code based on a condition. Conditions evaluate to true (non-zero) or false (zero).</p>
+    <pre><code>if (condition) {
+    // Code if true
+} else if (another_condition) {
+    // Code if first false, second true
+} else {
+    // Code if all false
+}</code></pre>
+    <p><strong>Key Points:</strong> Parentheses around condition are required. Use braces even for single statements to avoid bugs.</p>
+    <h2>Switch</h2>
+    <p>Efficient for multiple constant choices. Falls through unless broken.</p>
+    <pre><code>switch (variable) {
+    case 1:
+        // Code for 1
+        break;  // Exit switch
+    case 2:
+        // Code for 2
+        break;
+    default:
+        // Code if no match
+}</code></pre>
+    <p><strong>Advanced Note:</strong> Use switch for performance when many cases. Break prevents fall-through, which can be intentional but often a bug.</p>
+    <h2>Loops</h2>
+    <h3>For Loop</h3>
+    <p>Best for known iterations. Initialization, condition, increment in one line.</p>
+    <pre><code>for (int i = 0; i < 10; i++) {
+    printf("%d\n", i);
+}</code></pre>
+    <p>Variables declared in init are scoped to the loop (C99+).</p>
+    <h3>While Loop</h3>
+    <p>Executes while condition is true. Check condition before each iteration.</p>
+    <pre><code>while (condition) {
+    // Code
+}</code></pre>
+    <h3>Do-While</h3>
+    <p>Executes at least once, then checks condition.</p>
+    <pre><code>do {
+    // Code
+} while (condition);</code></pre>
+    <p>Use when loop must run once, like menu systems.</p>
+    <h2>Break and Continue</h2>
+    <p><code>break</code> exits the innermost loop or switch. <code>continue</code> skips to next iteration.</p>
+    <pre><code>for (int i = 0; i < 10; i++) {
+    if (i == 5) continue;  // Skip 5
+    if (i == 8) break;     // Stop at 8
+    printf("%d ", i);
+}</code></pre>
+    <p><strong>Advanced Note:</strong> Nested loops: break/continue affect only the inner loop. Use goto sparingly for complex control flow.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

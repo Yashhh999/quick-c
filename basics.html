@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Syntax and Concepts</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Basic Syntax and Concepts in C</h1>
+    <p>C is a compiled language where you write source code in .c files, compile it to machine code, and run the executable. Unlike interpreted languages, this gives high performance but requires compilation.</p>
+    <h2>Program Structure</h2>
+    <p>Every C program starts with the <code>main</code> function. This is the entry point where execution begins. The <code>return 0;</code> indicates successful completion.</p>
+    <pre><code>#include &lt;stdio.h&gt;  // Includes standard input/output functions
+
+int main() {  // Function definition: return type, name, parameters
+    // Statements go here
+    return 0;  // Return value to the operating system
+}</code></pre>
+    <p><strong>Key Points:</strong> Functions must declare return types. <code>main</code> typically returns int. The <code>#include</code> directive brings in external code.</p>
+    <h2>Comments</h2>
+    <p>Comments are ignored by the compiler and used for documentation.</p>
+    <pre><code>// Single line comment - for brief notes
+/* Multi-line comment
+   for longer explanations */</code></pre>
+    <p>Use comments to explain complex logic or assumptions.</p>
+    <h2>Semicolons and Statements</h2>
+    <p>Each statement ends with a semicolon. This tells the compiler where one instruction ends and another begins.</p>
+    <pre><code>printf("Hello");  // Statement 1
+printf("World");  // Statement 2</code></pre>
+    <p>Forgetting semicolons is a common compilation error.</p>
+    <h2>Case Sensitivity</h2>
+    <p>C is case-sensitive: <code>main</code> and <code>Main</code> are different identifiers.</p>
+    <h2>Whitespace</h2>
+    <p>Whitespace (spaces, tabs, newlines) is ignored except in strings. Use it for readability.</p>
+    <pre><code>int x=5;  // Valid but hard to read
+int y = 5;  // Better</code></pre>
+    <h2>Basic Input/Output</h2>
+    <p><code>printf</code> outputs formatted text to the console. <code>scanf</code> reads input.</p>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");  // \n is newline
+    return 0;
+}</code></pre>
+    <p><strong>Advanced Note:</strong> <code>printf</code> uses format specifiers like %d for integers, %f for floats. Always check return values for errors in production code.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in C</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 5px solid #ccc; }
+        code { background: #f4f4f4; padding: 2px 4px; }
+        .highlight { background: #ffff99; padding: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Arrays in C</h1>
+    <p>Arrays store fixed-size sequences of elements of the same type. They provide contiguous memory access.</p>
+    <h2>Declaration</h2>
+    <p>Specify type, name, and size. Size must be constant.</p>
+    <pre><code>int numbers[5];  // Uninitialized array
+int arr[] = {1, 2, 3, 4, 5};  // Initialized, size inferred</code></pre>
+    <p>Arrays are zero-indexed. Accessing beyond bounds causes undefined behavior.</p>
+    <h2>Accessing Elements</h2>
+    <pre><code>numbers[0] = 10;  // First element
+printf("%d\n", numbers[0]);</code></pre>
+    <p>Use loops for processing entire arrays.</p>
+    <h2>Multi-dimensional Arrays</h2>
+    <p>Arrays of arrays. Useful for matrices, grids.</p>
+    <pre><code>int matrix[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};</code></pre>
+    <p>Access with matrix[row][col]. Memory is row-major order.</p>
+    <h2>Array Size</h2>
+    <p>Use sizeof to calculate length dynamically.</p>
+    <pre><code>int size = sizeof(numbers) / sizeof(numbers[0]);</code></pre>
+    <p>This works for arrays, not pointers.</p>
+    <h2>Passing Arrays to Functions</h2>
+    <p>Arrays decay to pointers. Pass size separately.</p>
+    <pre><code>void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+}</code></pre>
+    <p><strong>Advanced Note:</strong> Functions can't determine array size from pointer. Always pass size to prevent buffer overflows.</p>
+    <h2>Strings as Arrays</h2>
+    <p>Strings are char arrays with null terminator.</p>
+    <pre><code>char str[20] = "Hello";  // 'H','e','l','l','o','\0'</code></pre>
+    <p><strong>Advanced Note:</strong> String functions assume null termination. Buffer overflows are common security issues.</p>
+    <a href="index.html">Back to Index</a>
+</body>
+</html>
